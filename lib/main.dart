@@ -1,25 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:presensi/profile.dart';
-
+import 'package:presensi/riwayat_presensi.dart';
+import 'package:presensi/splashscreen.dart';
 import 'login.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Flutter Demo',
-        debugShowCheckedModeBanner: true,
-        home: LoginPage(),
-        routes: {
-          '/login': (_) => const LoginPage(),
-          '/profile': (_) => const ProfilePage(),
-    });
+      title: 'Demo Presensi',
+      debugShowCheckedModeBanner: false,
+      initialRoute: '/',                        // splash jadi route pertama
+      routes: {
+        '/':        (_) => const SplashScreen(),
+        '/login':   (_) => const LoginPage(),
+        '/riwayat': (_) => const RiwayatPresensiPage(),
+      },
+    );
   }
 }
